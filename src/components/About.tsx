@@ -81,16 +81,16 @@ export const About: React.FC<AboutProps> = ({ data }) => {
             {philosophies.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors rounded-xl flex gap-4 text-left group"
+                className="p-5 bg-white/[0.01] border border-white/5 hover:border-[#38BDF8]/20 transition-all duration-300 rounded-xl flex gap-4 text-left group shadow-lg"
               >
-                <div className="p-2 h-fit rounded-lg bg-black/40 border border-white/5 group-hover:border-[#38BDF8]/40 transition-colors">
+                <div className="p-2.5 h-fit rounded-lg bg-black/40 border border-white/5 group-hover:border-[#38BDF8]/40 transition-colors">
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="text-xs font-semibold font-mono tracking-wide text-zinc-100 uppercase">
+                  <h4 className="text-xs font-bold font-mono tracking-wide text-zinc-100 uppercase group-hover:text-[#38BDF8] transition-colors">
                     {item.title}
                   </h4>
-                  <p className="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+                  <p className="text-xs text-zinc-400 mt-2 leading-relaxed font-sans">
                     {item.desc}
                   </p>
                 </div>

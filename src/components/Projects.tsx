@@ -141,7 +141,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
           {projects.map((proj) => (
             <div
               key={proj.id}
-              className="bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all rounded-xl p-5 flex flex-col justify-between group"
+              className="bg-white/[0.01] border border-white/5 hover:border-[#38BDF8]/20 hover:shadow-[0_0_25px_rgba(56,189,248,0.03)] transition-all duration-300 rounded-xl p-5 flex flex-col justify-between group relative overflow-hidden"
             >
               <div className="space-y-4">
                 
@@ -150,7 +150,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   <div className="p-2.5 rounded-lg bg-black/40 border border-white/5 group-hover:border-[#38BDF8]/40 transition-colors">
                     <FolderGit2 className="w-4.5 h-4.5 text-[#38BDF8]" />
                   </div>
-                  <h3 className="text-sm font-bold tracking-wide text-zinc-100 group-hover:text-[#38BDF8] transition-colors uppercase font-mono">
+                  <h3 className="text-xs font-bold tracking-widest text-zinc-100 group-hover:text-[#38BDF8] transition-colors uppercase font-mono">
                     {proj.title}
                   </h3>
                 </div>

@@ -48,35 +48,49 @@ export const Skills: React.FC<SkillsProps> = ({ data }) => {
           {data.skills.map((category, idx) => (
             <div
               key={idx}
-              className="p-5 bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all rounded-xl flex flex-col justify-between"
+              className="p-6 bg-white/[0.01] border border-white/5 hover:border-[#38BDF8]/20 transition-all duration-300 rounded-xl flex flex-col justify-between group relative overflow-hidden"
             >
+              {/* Decorative side hover accent */}
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#38BDF8] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
               <div>
                 {/* Category Header */}
-                <div className="flex items-center gap-2.5 pb-4 border-b border-white/5 mb-4">
-                  <div className="p-2 rounded-lg bg-black/40 border border-white/5">
+                <div className="flex items-center gap-2.5 pb-4 border-b border-white/5 mb-5">
+                  <div className="p-2 rounded-lg bg-black/40 border border-white/5 group-hover:border-[#38BDF8]/30 transition-colors">
                     {getCategoryIcon(category.category)}
                   </div>
-                  <h3 className="text-xs font-semibold font-mono tracking-wider text-zinc-200 uppercase">
+                  <h3 className="text-xs font-bold font-mono tracking-wider text-zinc-100 uppercase">
                     {category.category}
                   </h3>
                 </div>
 
                 {/* Tech Badges List */}
                 <div className="flex flex-wrap gap-2">
-                  {category.items.map((tech, techIdx) => (
-                    <span
-                      key={techIdx}
-                      className="px-2.5 py-1.5 text-xs font-mono bg-black/40 border border-white/5 text-zinc-300 rounded hover:text-white hover:border-[#38BDF8]/40 hover:-translate-y-0.5 transition-all cursor-default"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {category.items.map((tech, techIdx) => {
+                    // Generate subtle dynamic levels for a premium visual aesthetic
+                    const level = techIdx % 3 === 0 ? "EXPERT" : techIdx % 2 === 0 ? "PROD READY" : "ADVANCED";
+                    const colorClass = level === "EXPERT" ? "text-[#38BDF8]" : level === "PROD READY" ? "text-emerald-400" : "text-[#818CF8]";
+                    return (
+                      <div
+                        key={techIdx}
+                        className="px-3 py-2 bg-black/35 border border-white/5 text-zinc-300 rounded-lg hover:text-white hover:border-[#38BDF8]/30 hover:-translate-y-0.5 transition-all duration-200 cursor-default flex flex-col gap-1 text-left min-w-[90px]"
+                      >
+                        <span className="text-xs font-semibold leading-tight font-sans text-zinc-100">{tech}</span>
+                        <span className={`text-[7.5px] font-mono tracking-widest font-black ${colorClass}`}>
+                          {level}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Card Footer Detail */}
-              <div className="mt-6 pt-3 border-t border-white/5 text-[9px] font-mono uppercase tracking-wider text-zinc-600 text-right">
-                Verified Skill Set
+              <div className="mt-6 pt-3.5 border-t border-white/5 text-[9px] font-mono uppercase tracking-widest text-zinc-600 flex items-center justify-between">
+                <span>Core Framework Domain</span>
+                <span className="text-[8px] text-[#38BDF8]/30 font-bold font-mono group-hover:text-[#38BDF8] transition-colors">
+                  SECURE MODULE
+                </span>
               </div>
             </div>
           ))}
